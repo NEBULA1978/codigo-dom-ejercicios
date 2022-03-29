@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1#0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table td,
+        th,
+        tr {
+            border: 1px solid #000;
+
+        }
+
+        #employeeTable td,
+        #employeeTable th,
+        #employeeTable tr {
+            width: 80px;
+            height: 30px;
+        }
+    </style>
+    <script type="text/javascript">{
+
+            // Eliminar función  
+            function delA() {
+
+                var tr = this.parentNode.parentNode;
+                var name = tr.children[0].innerHTML;
+                var flag = confirm("Are you sure to delece " + name + " ?");
+                if (flag) {
+                    tr.parentNode.removeChild(tr);
+                }
+                return false;
+
+            }
+
+            window.οnlοad = function () {
+                var a = document.getElementsByTagName("a");
+                for (var i = 0; i < a.length; i++) {
+                    a[i].οnclick = delA;
+                }
+
+                // Agregar función de empleado  
+                /*  
+                             * -Haga clic en el botón para agregar información del empleado al formulario  
+                */
+                // Vinculación de la función de respuesta al clic para el botón de envío  
+                var addEmpButton = document.getElementById("addEmpButton");
+                addEmpButton.οnclick = function () {
+                    // Obtener la información del empleado agregada por el usuario  
+                    // Obtener el nombre del empleado  
+                    var name = document.getElementById("empName").value;
+
+                    // Obtenga la edad del empleado  
+                    var age = document.getElementById("age").value;
+
+                    // Obtén el salario del empleado  
+                    var salary = document.getElementById("salary").value;
+
+                    // Guarde la información obtenida en tr  
+                    /*<tr>  
+                        <td>Ankry</td>  
+                        <td>21</td>  
+                        <td>10000</td>  
+                        <td><a href="deleteEmp?id=001">Delect</a></td>  
+                    </tr>*/
+
+                    var tr = document.createElement("tr");
+                    tr.innerHTML = "<td>" + name + "</td>" +
+                        "<td>" + age + "</td>" +
+                        "<td>" + salary + "</td>" +
+                        "<td><a href='javascript:;'>Delect</a></td>";
+                    // Obtener el elemento a que acaba de agregar y vincularlo con una función de respuesta independiente  
+                    var a = tr.getElementsByTagName("a")[0];
+                    a.οnclick = delA;
+
+                    // Demasiado engorroso ↓↓↓  
+                    // var tr=document.createElement("tr");  
+
+                    // var nameTd=document.createElement("td");  
+                    // var ageTd=document.createElement("td");  
+                    // var salaryTd=document.createElement("td");  
+                    // var aTd=document.createElement("td");  
+
+                    // var a=document.createElement("a");  
+
+                    // // Crea un nodo de texto  
+                    // var nameText=document.createTextNode(name);  
+                    // var ageText=document.createTextNode(age);  
+                    // var salaryText=document.createTextNode(salary);  
+                    // var delText=document.createTextNode("Delect");  
+
+                    // // Agrega texto a td  
+                    // nameTd.appendChild(nameText);  
+                    // ageTd.appendChild(ageText);  
+                    // salaryTd.appendChild(salaryText);  
+
+                    // // Agrega texto a ay td  
+                    // a.appendChild(delText);  
+                    // aTd.appendChild(a);  
+                    // // Agregar atributos a un  
+                    // a.href="javascript:;";  
+                    // // Vincular una función de respuesta de clic para el recién agregado  
+                    // a.οnclick=delA;  
+
+
+                    // // Agrega td a tr  
+                    // tr.appendChild(nameTd);  
+                    // tr.appendChild(ageTd);  
+                    // tr.appendChild(salaryTd);  
+                    // tr.appendChild(aTd);  
+
+                    // Obtener tabla  
+                    var employeeTable = document.getElementById("employeeTable");
+                    employeeTable.appendChild(tr);
+
+                    // Obtener el tbody en employeeTable  
+                    var tbody = employeeTable.getElementsByTagName("tbody")[0];
+                    tbody.appendChild(tr);
+
+                    // Los siguientes son peligros ocultos  
+                    // tbody.innerHTML+="<tr>"+  
+                    //             "<td>"+name+"</td>"+  
+                    //             "<td>"+age+"</td>"+  
+                    //             "<td>"+salary+"</td>"+  
+                    //             "<td><a href='javascript:;'>Delect</a></td>"  
+                    // +"</tr>";  
+                };
+
+
+
+
+            };
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <div class="table">
+        <table id="employeeTable">
+            <tr>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>SALARY</th>
+                <th> </th>
+            </tr>
+            <tr>
+                <td>Ankry</td>
+                <td>21</td>
+                <td>10000</td>
+                <td><a href="deleteEmp?id=001">Delect</a></td>
+            </tr>
+            <tr>
+                <td>Vicky</td>
+                <td>23</td>
+                <td>10000</td>
+                <td><a href="deleteEmp?id=002">Delect</a></td>
+            </tr>
+            <tr>
+                <td>Minline</td>
+                <td>24</td>
+                <td>11000</td>
+                <td><a href="deleteEmp?id=003">Delect</a></td>
+            </tr>
+        </table>
+    </div>
+    <div class="formDiv">
+        <h2>Creat A New Staff</h2>
+        <table>
+            <tr>
+                <td class="word">name: </td>
+                <td class="inp">
+                    <input type="text" name="empName" id="empName" />
+                </td>
+            </tr>
+            <tr>
+                <td class="word">age: </td>
+                <td class="inp">
+                    <input type="text" name="age" id="age" />
+                </td>
+            </tr>
+            <td class="word">salary: </td>
+            <td class="inp">
+                <input type="text" name="salary" id="salary" />
+            </td>
+            <tr>
+                <td colspan="2" align="center">
+                    <button id="addEmpButton" value="abc">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = inicio;
+        function inicio() {
+           let cantidad= document.getElementsByClassName("caja1");
+           alert(cantidad.length);
+           document.querySelector("body").innerHTML += '<div class="caja1">Caja 1</div>';
+           alert(cantidad.length);
+            
+
+           
+            // document.querySelectorAll(".caja3 .caja4")[0];
+            // document.getElementByClassName("caja3")[0].document.getElementByClassName("caja4")[0];
+           
+        }
+    </script>
+</head>
+
+<body>
+    <div class="caja1">Caja 1</div>
+    <div class="caja1">Caja 1</div>
+    <div class="caja1">Caja 1</div>
+    <div class="caja1">Caja 1</div>
+  
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Texto con JavaScript.";
+        }
+        function myFunction1() {
+            document.getElementById("demo").innerHTML = "A Paragraph.";
+        }
+        function myFunction2() {
+            document.getElementById("demo2").innerHTML = "Texto con JavaScript.";
+        }
+        function myFunction4() {
+            document.getElementById("demo2").innerHTML = "A Paragraph.";
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>Demo JavaScript in Head</h2>
+
+    <p id="demo">A Paragraph.</p>
+    <p id="demo2">A Paragraph.</p>
+
+    <button type="button" onclick="myFunction(),myFunction2()">Pulsamé</button>
+    <!-- <button type="button" onclick="myFunction2()">Pulsamé</button> -->
+    <button type="button" onclick="myFunction1(),myFunction4()">Pulsamé</button>
+    <!-- <button type="button" onclick="myFunction4()">Pulsamé</button> -->
+
+</body>
+
+</html>
